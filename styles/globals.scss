@@ -1,9 +1,23 @@
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
+@import './variables.module.scss';
 
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  &::-webkit-scrollbar { width: 8px; }
+  &::-webkit-scrollbar-thumb {
+    background-color: $mainColor;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $darken20Main3Color;
+    border-radius: 4px;
+  }
 }
 
 a {
