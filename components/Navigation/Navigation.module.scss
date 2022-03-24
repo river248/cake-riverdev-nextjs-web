@@ -1,0 +1,70 @@
+@import '../../styles/variables.module.scss';
+
+.navigationContainer {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: $mainColor;
+
+    ul {
+        list-style-type: none;
+        @include centerBox();
+        height: 62px;
+        margin: 0 auto;
+        padding-left: 0;
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+
+        li {
+            a {
+                @include centerBox();
+                height: 62px;
+                width: 100px;
+                text-decoration: none;
+                font-weight: 600;
+                color: $main3Color;
+            }
+
+            &:hover a {
+                color: $main2Color;
+            }
+
+            &:nth-child(1).active ~ .currentLink {
+                left: 0;
+            }
+
+            &:nth-child(2).active ~ .currentLink {
+                left: 100px;
+            }
+
+            &:nth-child(3).active ~ .currentLink {
+                left: 200px;
+            }
+
+            &:nth-child(4).active ~ .currentLink {
+                left: 300px;
+            }
+
+            &:nth-child(5).active ~ .currentLink {
+                left: 400px;
+            }
+        }
+
+        .currentLink {
+            width: 100px;
+            height: 5px;
+            background-color: $main2Color;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: all .2s ease-in-out;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navigationContainer { display: none; }
+}

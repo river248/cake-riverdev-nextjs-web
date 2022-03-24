@@ -1,0 +1,195 @@
+@import '../../styles/variables.module.scss';
+
+.footerContainer {
+    width: 100%;
+    padding-top: 70px;
+    background-image: url('/footer-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+
+    .topFooter {
+        @include centerBox('justify');
+
+        .topLeftFooter, .topCenterFooter, .topRightFooter {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+
+            h6 {
+                font-weight: 600;
+                font-size: 1rem;
+                margin: 0 0 20px 0;
+                color: $main3Color;
+            }
+
+            span {
+                font-size: 0.9rem;
+                line-height: 36px;
+                color: $darken30Main3Color;
+            }
+        }
+
+        .topLeftFooter, .topRightFooter {
+            flex-shrink: 0;
+
+            .emailInp {
+                position: relative;
+                margin-top: 20px;
+
+                input {
+                    height: 50px;
+                    width: 310px;
+                    border: none;
+                    outline: none;
+                    background-color: rgba($main3Color, $alpha: 0.3);
+                    padding-left: 22px;
+                    color: $main3Color;
+
+                    &::placeholder {
+                        color: $main3Color;
+                        font-weight: 400;
+                    }
+                }
+
+                svg {
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 26px;
+                    path { stroke: $mainColor; }
+                }
+            }
+        }
+
+        .topCenterFooter {
+            align-items: center;
+            width: 390px;
+
+            img {
+                margin-bottom: 32px;
+            }
+
+            span {
+                text-align: center;
+            }
+
+            .socialIconContainer {
+                @include centerBox('justify');
+                margin-top: 20px;
+
+                & > div {
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    background-color: rgba($main3Color, $alpha: 0.2);
+                    @include centerBox();
+                    color: $main3Color;
+                    cursor: pointer;
+
+                    &:not(:last-child) { margin-right: 15px; }
+                }
+            }
+        }
+
+        hr {
+            margin: 0 40px;
+            background-color: darken($main3Color, $amount: 40);
+            opacity: 0.5;
+            height: 200px;
+            border: none;
+            width: 1px !important;
+        }
+    }
+
+    .bottomFooter {
+        background-color: $main2Color;
+        height: 60px;
+        padding: 0 40px;
+        @include centerBox('align');
+        justify-content: space-around;
+        font-size: 0.9rem;
+        margin-top: 30px;
+
+        span {
+            color: $main3Color;
+            margin-right: 120px;
+        }
+
+        ul {
+            list-style-type: none;
+            color: $darken20Main3Color;
+            @include centerBox();
+            width: 320px;
+            padding-left: 0;
+            flex-shrink: 0;
+
+            hr {
+                width: 15px;
+                height: 1px;
+                border: none;
+                background-color: $darken20Main3Color;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1180px) {
+    .footerContainer .topFooter {
+        .topCenterFooter {
+            width: 320px;
+        }
+        .topRightFooter .emailInp input { width: 240px; }
+        hr { margin: 0 10px;}
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .footerContainer {
+        .topFooter {
+            flex-wrap: wrap;
+            width: 720px;
+            margin: auto;
+
+            .topCenterFooter, .topLeftFooter { width: 100%;}
+
+            .topRightFooter {
+                width: 100%;
+
+                .emailInp input { width: 100%;}
+            }
+
+            hr { display: none; }
+        }
+        .bottomFooter {
+            flex-direction: column;
+            justify-content: center;
+            height: auto;
+            padding: 15px 10px;
+
+            span { margin: 0; line-height: 24px;  text-align: center;}
+
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footerContainer .topFooter {
+        width: 540px;
+
+        .topCenterFooter {
+            align-items: flex-start;
+
+            span { text-align: left; }
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .footerContainer {
+        .topFooter { width: 100%; }
+        .bottomFooter ul { flex-shrink: unset; flex-wrap: wrap; width: auto;}
+    }
+}
