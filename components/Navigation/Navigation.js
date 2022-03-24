@@ -26,8 +26,6 @@ function Navigation() {
 
     }, [])
 
-    console.log(router.pathname)
-
   return (
     <div className={styles.navigationContainer} ref={navRef}>
         <ul>
