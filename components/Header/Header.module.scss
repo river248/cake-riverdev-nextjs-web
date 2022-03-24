@@ -79,23 +79,6 @@
             position: relative;
             transition: all .3s ease-in-out;
             overflow: hidden;
-            
-            &Item {
-                @include centerBox();
-                padding: 10px;
-                background-color: $main2Color;
-                color: $main3Color;
-                width: 110px;
-                position: absolute;
-                right: 10px;
-                cursor: pointer;
-    
-                span {
-                    text-transform: uppercase;
-                    font-weight: bold;
-                    margin-right: 10px;
-                }
-            }
     
             ul {
                 margin-top: 60px;
@@ -122,6 +105,23 @@
                 }
             }
         }
+
+        &Item {
+            @include centerBox();
+            padding: 10px;
+            background-color: $main2Color;
+            color: $main3Color;
+            width: 110px;
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+
+            span {
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+        }
     }
 }
 
@@ -140,13 +140,13 @@
             background-color: $main3Color;
             padding: 50px 20px 30px 30px;
             transition: all .3s ease-in-out;
-    
-            &Item {
-                margin-bottom: 20px;
-            }
-    }
+            .navMobileContainer { display: unset; }
+        }
 
-        .navMobileContainer { display: unset; }
+        &Item {
+            margin-bottom: 20px;
+        }
+
 
     }
 }
